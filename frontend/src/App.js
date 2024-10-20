@@ -1,26 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import IniciarSesion from './IniciarSesion';
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    fetch('https://backendobligatorio-de6eeb5df337.herokuapp.com/check-db')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Error en la solicitud: ' + response.status);
-        }
-        return response.text();
-      })
-      .then(data => setMessage(data))
-      .catch(error => setMessage('Error al conectar con el backend: ' + error.message));
-  }, []);
-
-  return (
-    <div>
-      <h1>Conexión con el Backend</h1>
-      <p>{message}</p>
-    </div>
-  );
+    return (
+        <div>
+            <IniciarSesion />
+        </div>
+    );
 }
 
 export default App;
