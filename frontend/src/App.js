@@ -1,12 +1,15 @@
 import React from 'react';
-import IniciarSesion from './IniciarSesion';
+import MasterPage from './pages/masterPage';
+import Ajustes from './pages/Ajustes';
+import IniciarSesion from './pages/IniciarSesion';
+import Jugar from './pages/Jugar';
 
-function App() {
-    return (
-        <div>
-            <IniciarSesion />
-        </div>
-    );
+function HomePage() {
+  return (
+    <Jugar>
+     
+    </Jugar>
+  );
 }
 
-export default App;
+export default HomePage;
