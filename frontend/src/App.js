@@ -6,9 +6,9 @@ import Jugar from './pages/Jugar';
 
 function HomePage() {
   return (
-    <Jugar>
+    <IniciarSesion>
      
-    </Jugar>
+    </IniciarSesion>
   );
 }
 
