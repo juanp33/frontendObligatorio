@@ -10,9 +10,9 @@ import PaginaRegistro from './pages/Registro';
 
 function HomePage() {
   return (
-    <PaginaRegistro>
+    <IniciarSesion>
      
-    </PaginaRegistro>
+    </IniciarSesion>
   );
 }
 
