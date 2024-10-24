@@ -14,15 +14,15 @@ function IniciarSesion() {
         username,
         password,
       });
-
-      
+  
+      console.log('Response data:', response.data); // Verificar la estructura de la respuesta
       localStorage.setItem('token', response.data.token);
       setError('');
       console.log('Inicio de sesión exitoso');
-
-      
+  
       window.location.href = '/dashboard'; 
     } catch (error) {
+      console.error('Error during login:', error);
       setError('Error: Credenciales incorrectas. Inténtalo de nuevo.');
     }
   };
