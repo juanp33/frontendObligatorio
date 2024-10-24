@@ -7,12 +7,19 @@ import Ruleta from './pages/Ruleta';
 import PaginaRuleta from './pages/PaginaRuleta';
 import Preguntas from './pages/Preguntas';
 import PaginaRegistro from './pages/Registro';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function HomePage() {
   return (
-    <IniciarSesion>
-     
-    </IniciarSesion>
+    
+       <Router>
+      <Routes>
+        <Route path="/" element={<IniciarSesion />} />
+        <Route path="/register" element={<PaginaRegistro />} /> 
+      </Routes>
+    </Router>
+    
+    
   );
 }
 

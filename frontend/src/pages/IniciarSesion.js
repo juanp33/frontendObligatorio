@@ -34,6 +34,7 @@ function IniciarSesion() {
 
   return (
     <MasterPage>
+      
       <div className="login-container">
         <div className="login-card">
           <div className="login-icon">
