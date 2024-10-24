@@ -10,31 +10,38 @@ function IniciarSesion() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://backendobligatoriospringboot-production.up.railway.app/api/auth/login', {
-        username,
-        password,
-      });
-  
-      console.log('Response data:', response.data); // Verificar la estructura de la respuesta
-      localStorage.setItem('token', response.data.token);
+      const response = await axios.post(
+        'https://backendobligatoriospringboot-production.up.railway.app/login',
+        {
+          username: username,
+          password: password,
+        },
+        {
+          withCredentials: true, // Esto permite que el navegador maneje automáticamente las cookies de sesión
+        }
+      );
+
+      console.log('Response data:', response.data);
       setError('');
       console.log('Inicio de sesión exitoso');
-  
-      window.location.href = '/dashboard'; 
+
+      // Redirige a la página del dashboard después del login exitoso
+      window.location.href = '/dashboard';
     } catch (error) {
       if (error.response) {
-        // Error recibido del servidor
-        setError(`Error: ${error.response.data}. Inténtalo de nuevo.`);
-        console.error('Response error:', error.response.data);
+        console.error('Error data:', error.response.data);
+        console.error('Status code:', error.response.status);
+        console.error('Headers:', error.response.headers);
+        setError('Usuario o contraseña incorrectos');
       } else if (error.request) {
-        // Error en la solicitud (no se recibió respuesta del servidor)
-        setError('Error: No se pudo conectar con el servidor. Verifica tu conexión.');
-        console.error('Request error:', error.request);
+        console.error('Request made but no response received:', error.request);
+        setError('No se recibió respuesta del servidor.');
       } else {
-        // Otro tipo de error
-        setError('Error: Ocurrió un problema inesperado.');
-        console.error('Unexpected error:', error.message);
+        console.error('Error during setup:', error.message);
+        setError('Ocurrió un error durante la configuración.');
       }
+
+      console.error('Unexpected error:', error.message);
     }
   };
 

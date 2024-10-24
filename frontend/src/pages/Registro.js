@@ -25,6 +25,12 @@ const PaginaRegistro = () => {
         username,
         password,
         email,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-API-KEY': 'NacionalNacional'
+        }
       });
       setMessage('Usuario registrado exitosamente');
       setError('');
