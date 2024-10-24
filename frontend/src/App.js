@@ -7,12 +7,15 @@ import Ruleta from './pages/Ruleta';
 import PaginaRuleta from './pages/PaginaRuleta';
 import Preguntas from './pages/Preguntas';
 import PaginaRegistro from './pages/Registro';
+import PaginaApuestas from './pages/PaginaApuestas';
+import PaginaCajero from './pages/PaginaCajero';
+
 
 function HomePage() {
   return (
-    <PaginaRegistro>
+    <PaginaCajero>
      
-    </PaginaRegistro>
+    </PaginaCajero>
   );
 }
 
