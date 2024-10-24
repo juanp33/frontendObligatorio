@@ -1,17 +1,35 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import MasterPage from './masterPage';
 import '../styles/IniciarSesion.css';
 
 function IniciarSesion() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const handleLogin = () => {
-    console.log('Iniciar sesión con:', { username, password });
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('https://backendobligatoriospringboot-production.up.railway.app/api/auth/login', {
+        username,
+        password,
+      });
+
+      
+      localStorage.setItem('token', response.data.token);
+      setError('');
+      console.log('Inicio de sesión exitoso');
+
+      
+      window.location.href = '/dashboard'; 
+    } catch (error) {
+      setError('Error: Credenciales incorrectas. Inténtalo de nuevo.');
+    }
   };
 
   const handleRegister = () => {
-    console.log('Redirigir a página de registro');
+   
+    window.location.href = '/register';
   };
 
   return (
@@ -27,20 +45,23 @@ function IniciarSesion() {
               placeholder="Usuario"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              required
             />
             <input
               type="password"
               placeholder="Contraseña"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
           <button className="login-button" onClick={handleLogin}>
-            Iniciar sesion
+            Iniciar sesión
           </button>
           <button className="register-button" onClick={handleRegister}>
             Registrarse
           </button>
+          {error && <p className="error-message">{error}</p>}
         </div>
       </div>
     </MasterPage>
@@ -48,3 +69,4 @@ function IniciarSesion() {
 }
 
 export default IniciarSesion;
+
