@@ -22,9 +22,19 @@ function IniciarSesion() {
   
       window.location.href = '/dashboard'; 
     } catch (error) {
-      console.error('Error during login:', error);
-      setError('Error: Credenciales incorrectas. Inténtalo de nuevo.');
-    }
+      if (error.response) {
+        // Error recibido del servidor
+        setError(`Error: ${error.response.data}. Inténtalo de nuevo.`);
+        console.error('Response error:', error.response.data);
+      } else if (error.request) {
+        // Error en la solicitud (no se recibió respuesta del servidor)
+        setError('Error: No se pudo conectar con el servidor. Verifica tu conexión.');
+        console.error('Request error:', error.request);
+      } else {
+        // Otro tipo de error
+        setError('Error: Ocurrió un problema inesperado.');
+        console.error('Unexpected error:', error.message);
+      }
   };
 
   const handleRegister = () => {
@@ -69,5 +79,6 @@ function IniciarSesion() {
   );
 }
 
-export default IniciarSesion;
 
+}
+export default IniciarSesion;
