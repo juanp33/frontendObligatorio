@@ -14,7 +14,7 @@ const PaginaRegistro = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Verificar que las contraseñas coincidan
+   
     if (password !== confirmPassword) {
       setError('Las contraseñas no coinciden');
       return;
@@ -28,7 +28,7 @@ const PaginaRegistro = () => {
       });
       setMessage('Usuario registrado exitosamente');
       setError('');
-      // Limpiar el formulario
+      
       setUsername('');
       setPassword('');
       setConfirmPassword('');
