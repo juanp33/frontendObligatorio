@@ -20,7 +20,7 @@ body, html {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: auto; /* Esto empuja el botón hacia la parte inferior */
+    margin-top: auto;
   }
   .header {
     width: 100%;
@@ -37,7 +37,6 @@ body, html {
     line-height: 111px;
     color: #000;
   }
-  
   .main-content {
     flex: 1;
     display: flex;

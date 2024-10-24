@@ -8,7 +8,7 @@ function Ajustes() {
   const [textToSpeech, setTextToSpeech] = useState(true);
 
   const handleSave = () => {
-    // Aquí iría la lógica para guardar los cambios
+   
     console.log('Guardando cambios:', { music, soundEffects, textToSpeech });
   };
 
