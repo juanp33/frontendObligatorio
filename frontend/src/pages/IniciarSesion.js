@@ -35,16 +35,15 @@ function IniciarSesion() {
         setError('Error: Ocurrió un problema inesperado.');
         console.error('Unexpected error:', error.message);
       }
+    }
   };
 
   const handleRegister = () => {
-   
     window.location.href = '/register';
   };
 
   return (
     <MasterPage>
-      
       <div className="login-container">
         <div className="login-card">
           <div className="login-icon">
@@ -79,6 +78,4 @@ function IniciarSesion() {
   );
 }
 
-
-}
 export default IniciarSesion;
