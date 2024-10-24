@@ -11,7 +11,7 @@ function IniciarSesion() {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        'https://backendobligatoriospringboot-production.up.railway.app/login',
+        'https://backendobligatoriospringboot-production.up.railway.app/api/login',
         {
           username: username,
           password: password,
@@ -24,9 +24,7 @@ function IniciarSesion() {
       console.log('Response data:', response.data);
       setError('');
       console.log('Inicio de sesión exitoso');
-
-      // Redirige a la página del dashboard después del login exitoso
-      window.location.href = '/dashboard';
+     
     } catch (error) {
       if (error.response) {
         console.error('Error data:', error.response.data);
